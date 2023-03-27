@@ -1,0 +1,26 @@
+{
+  "name": "meetease",
+  "version": "1.0.0",
+  "description": "A calendly like application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chetandabli/busy-motion-6100.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chetandabli/busy-motion-6100/issues"
+  },
+  "homepage": "https://github.com/chetandabli/busy-motion-6100#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
