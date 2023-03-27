@@ -1,0 +1,13 @@
+on: push
+jobs: 
+  first-job: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm i express
+      - run: npm i cors
+      - run: npm i dotenv
+      - run: npm i mongoose
+      - run: npm i nodemon
+      - run: node index.js
+      - run: npm start server
