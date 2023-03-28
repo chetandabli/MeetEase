@@ -1,12 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeetEase</title>
+    <title>Calendy</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon"
+        href="data:image/png;base64,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"
+        type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
+        defer></script>
+    <script src="https://kit.fontawesome.com/bd303dea31.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
+    <!---------------------------------------------------------- Header-------------------------------------------------------------- -->
+    <nav>
+        <div>
+            <img src="../img/MeetEase-removebg-preview.png" alt="error-404">
+        </div>
+        <div id="top_nav">
+            <div><a href=""></a>Products</div>
+            <div><a href=""></a>Solutions <i class="fa-solid fa-angle-down"></i></div>
+            <div><a href=""></a>Teams & Companies</div>
+            <div><a href=""></a>Pricing</div>
+            <div><a href=""></a>Resources <i class="fa-solid fa-angle-down"></i></div>
+        </div>
+        <div id="acc_btn">
+            <button id="my_ac_btn">My Account</button>
+        </div>
+    </nav>
+    <!---------------------------------------------------------- Header Ends---------------------------------------------------------------- -->
+    <!-------------------------------------------------------------- About---------------------------------------------------------------------------------------- -->
+    <section id="about">
+        <div id="easy">
+            <h4>Easy</h4>
+            <h4>scheduling</h4>
+            <h4>ahead</h4>
+            <p>Calendly is your scheduling automation platform for eliminating the back-and-forth emails for finding the
+                perfect time — and so much more.</p>
+            <div id="oauth">
+                <button><i class="fa-brands fa-google"></i> Sign up free with Google</button>
+                <button><i class="fa-brands fa-microsoft"></i> Sign up free with Microsoft</button>
+            </div>
+        </div>
+        <div id="easy_img">
+            <img src="https://images.ctfassets.net/k0lk9kiuza3o/46W8NE43rD54MveL20rPp5/e18c62fb5617db69691c4ec475005c06/Homepage-Hero-new.png?w=1366&h=1132&q=85&fm=webp"
+                alt="error-404">
+        </div>
+    </section>
+    <!-------------------------------------------------------------- About Ends---------------------------------------------------------------------------------------- -->
+    <!-------------------------------------------------------------- Simplified Scheduling---------------------------------------------------------------------------------------- -->
+    <section id="simplified">
+        <h2>Simplified scheduling for more than</h2>
+        <h2>10,000,000<span id="million"> users worldwide</span></h2>
+        <div class="slider">
+            <div class="slides">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/5DR8HfsFIbSQZlUXsBqjWN/9d3183fc00336917d96cef59832b5403/Twilio-logo-red.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/56cjEhKMIFlRPdVUSQqMYD/e576716034690751c9781af8f41a5b3b/EBay_logo.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/bOnLOncEyDdb8izczJggp/0835570c9693c23131f1e036b0950a80/Dropbox_logo_2017__1_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6PFPRWMRMxRXthyXYcDRiR/6f26aaf48346fb5dfa8318bb4a403e02/Compass__2_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6NiS4DQmcqEUxKkXJVesAP/d356b290fa1f13a2addae7870312fef2/Vector.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/5DR8HfsFIbSQZlUXsBqjWN/9d3183fc00336917d96cef59832b5403/Twilio-logo-red.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/56cjEhKMIFlRPdVUSQqMYD/e576716034690751c9781af8f41a5b3b/EBay_logo.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/bOnLOncEyDdb8izczJggp/0835570c9693c23131f1e036b0950a80/Dropbox_logo_2017__1_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6PFPRWMRMxRXthyXYcDRiR/6f26aaf48346fb5dfa8318bb4a403e02/Compass__2_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6NiS4DQmcqEUxKkXJVesAP/d356b290fa1f13a2addae7870312fef2/Vector.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/5DR8HfsFIbSQZlUXsBqjWN/9d3183fc00336917d96cef59832b5403/Twilio-logo-red.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/56cjEhKMIFlRPdVUSQqMYD/e576716034690751c9781af8f41a5b3b/EBay_logo.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/bOnLOncEyDdb8izczJggp/0835570c9693c23131f1e036b0950a80/Dropbox_logo_2017__1_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6PFPRWMRMxRXthyXYcDRiR/6f26aaf48346fb5dfa8318bb4a403e02/Compass__2_.svg"
+                    alt="error-404">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6NiS4DQmcqEUxKkXJVesAP/d356b290fa1f13a2addae7870312fef2/Vector.svg"
+                    alt="error-404">
+            </div>
+        </div>
+    </section>
+    <section id="special_features">
+        <h2>Special features for teams who</h2>
+        <h2>conduct meetings at scale</h2>
+        <div id="nav2">
+            <div>
+                <i class="fa-brands fa-adversal"></i>
+                <br>
+                <a href="">Sales</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-phone-volume"></i>
+                <br>
+                <a href="">Marketing</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-users"></i>
+                <br>
+                <a href="">Customer Success</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-user"></i>
+                <br>
+                <a href="">Recruiting</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-laptop"></i>
+                <br>
+                <a href="">Information Technology</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-book"></i>
+                <br>
+                <a href="">Education</a>
+            </div>
+        </div>
+        <div id="content_mid">
+            <div id="mid_dollar">
+                <h4><i class="fa-solid fa-dollar-sign"></i> Drive more revenue</h4>
+                <p class="firstp">Book high-value meetings in seconds and</p>
+                <p>turn scheduling into a competitive</p>
+                <p>advantage.</p>
+                <h4><i class="fa-solid fa-users"></i> Speed up your sales cycle</h4>
+                <p class="firstp">Keep your deal momentum high and</p>
+                <p>remove scheduling friction at every stage</p>
+                <p>of your sales cycle.</p>
+                <h4><i class="fa-solid fa-handshake"></i> Close more deals</h4>
+                <p class="firstp">Customize reminder and follow-up</p>
+                <p>workflows to move deals along, integrate</p>
+                <p>with sales tools, and remove logistical</p>
+                <p>tasks to focus on selling.</p>
+                <h5>Learn more <i class="fa-solid fa-arrow-right"></i></h5>
+            </div>
+            <div id="mid_img">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/2rG4thXSvKkcjfy96bmbWa/1d7cd9d16cc09fffcdea73cb6718479f/Calendly-Sales-Small-new.png?w=1140&h=955&q=85&fm=webp"
+                    alt="error-404">
+            </div>
+        </div>
+    </section>
+    <section id="schedule">
+        <h2>We make scheduling for you</h2>
+        <h2>easier than ever</h2>
+        <div class="scheduled">
+            <div class="sh1">
+                <h1>Share your Calendly</h1>
+                <h1>availability with others</h1>
+                <p>Grow your business with scheduling automation. Simply email, text, or add your Calendly availability
+                    to your website – and watch prospects and recruits book high-value meetings with you.</p>
+                <h5>Learn more <i class="fa-solid fa-arrow-right"></i></h5>
+            </div>
+            <div class="sh2">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/7mkknkKmPsEGwaB5mdt60t/a0010378ce3a001a11e9040372a91362/Calendly-Email-Embed-Recruiting.png?w=1140&h=931&q=85&fm=webp"
+                    alt="error-404">
+            </div>
+        </div>
+        <div class="scheduled">
+            <div class="sh1">
+                <h1>Schedule as a team</h1>
+                <p>Calendly adapts to both you and your team's scheduling preferences. Co-host a client call with a
+                    colleague, email reminders and follow-ups, and integrate everything with your preferred software
+                    tools.</p>
+                <h5>Learn more <i class="fa-solid fa-arrow-right"></i></h5>
+            </div>
+            <div class="sh2">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6XqS7MbsZB4a08zAUxOHde/033649d82a01b51bbc080b037aac0206/Calendly-Round-Robin.png?w=1140&h=931&q=85&fm=webp"
+                    alt="error-404">
+            </div>
+        </div>
+        <div class="scheduled">
+            <div class="sh1">
+                <h1>Hit your number</h1>
+                <p>High-value meetings are the lifeblood of your business. Increase revenue, retain customers, and land
+                    recruits with the #1 scheduling automation platform.</p>
+                <h5>Learn more <i class="fa-solid fa-arrow-right"></i></h5>
+            </div>
+            <div class="sh2">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/ImJSAqUd3vtZlQiEiyWXH/a6a23c23b5d4fdb5173b5a43c48de78a/Calendly-Graph.png?w=1140&h=930&q=85&fm=webp"
+                    alt="error-404">
+            </div>
+        </div>
+    </section>
+    <div id="toCover">
+    <section id="chris">
+        <div id="ch_img">
+            <img src="https://images.ctfassets.net/k0lk9kiuza3o/1P9zuAkIFq322HPnDsTr0r/80fc18ea040a5b39e746bfdee015e9a0/Calendly-testimonial-Vonage__1_.png?w=1140&h=931&q=85&fm=webp"
+                alt="error-404">
+        </div>
+        <div id="ch_p">
+            <p>“Calendly has increased meetings with customers by 216% for our Vonage team.”</p>
+            <img src="https://images.ctfassets.net/k0lk9kiuza3o/2H4GbF1jpOyD7cNMW0Dv82/85a232765d647c41403ca471fe76589d/VonageLogo.svg"
+                alt="error-404">
+            <h3>Chris Williams</h3>
+            <h4>Head of Customer Success UK/EMEA</h4>
+            <h5>Learn more <i class="fa-solid fa-arrow-right"></i></h5>
+        </div>
+    </section>
+    </div>
+    <section id="automation">
+        <h1>Scheduling automation happens before</h1>
+        <h1>and after meetings</h1>
+        <div id="au">
+            <div id="blank">
+                <img src="https://images.ctfassets.net/k0lk9kiuza3o/6iI0qZPOm1t1JS7XNUsvKD/c87ef962e1b7a5df79f18b82ec8f56db/Calendly-Teams-Workflows__1_.png?w=1140&h=924&q=85&fm=webp"
+                    alt="error-404">
+            </div>
+            <div id="vertical-line"></div>
+            <div id="auto">
+                <p>Let people schedule meetings on your website</p>
+                <p>Screen people before they can book with you</p>
+                <p>Make people reconfirm meetings with you</p>
+                <p>Automatically move a deal along with helpful content</p>
+            </div>
+        </div>
+    </section>
+    <div id="tocover2">
+    <section id="integration">
+        <div id="int1">
+            <h1>Integrations and</h1>
+            <h1>Extensions</h1>
+            <p>Boost productivity with integrations that fold right into your workflow.</p>
+            <button>Explore integrations</button>
+        </div>
+        <div id="int2">
+            <img src="https://images.ctfassets.net/k0lk9kiuza3o/7pnp3ZIJHHNMJEYXSCktL/b04ce26084a30501984a14a2058efa36/Integrations-Calendly__1_.png?w=1582&h=1283&q=85&fm=webp"
+                alt="error-404">
+        </div>
+    </section>
+</div>
+
+
+
 </body>
+<script src="home_page.js"></script>
+
 </html>
