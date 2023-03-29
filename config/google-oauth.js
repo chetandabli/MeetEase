@@ -1,7 +1,7 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const passport = require("passport");
 require("dotenv").config();
-const {userModel} = require("../models/user.model")
+const {Usermodel} = require("../models/user.model")
 const client_id = process.env.client_id;
 const client_secret = process.env.client_secret;
 // const { v4:uuidv4} = require('uuid')
@@ -16,7 +16,7 @@ passport.use(new GoogleStrategy({
     if(userData._id){
         return cb(null, userData);
     }else{
-        const newUser = new userModel({
+        const newUser = new Usermodel({
             name,
             email,
             picture
