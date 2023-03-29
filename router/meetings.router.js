@@ -5,6 +5,8 @@ const meetingRouter= express.Router();
 const {auth} = require("../middleware/authenticate");
 const {client} = require("../config/redis");
 
+meetingRouter.use(auth);
+
 meetingRouter.get("/", async(req, res)=>{
     try {
         let data= await MeetingModel.find()

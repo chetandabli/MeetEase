@@ -23,7 +23,7 @@ const meetingSchema = mongoose.Schema({
         type: Boolean, default: false
     }, 
     booked_by: {
-        type: String, default: ""
+        type: mongoose.Schema.Types.Mixed, default: ""
     },
     color: {
         type: String, default: "gray"

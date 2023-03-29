@@ -12,8 +12,8 @@ passport.use(new GoogleStrategy({
   },
   async function(accessToken, refreshToken, profile, cb) {
     const {name, email, picture} = profile._json;
-    const userData = await userModel.findOne({email});
-    if(userData._id){
+    const userData = await Usermodel.findOne({email});
+    if(userData != null){
         return cb(null, userData);
     }else{
         const newUser = new Usermodel({
