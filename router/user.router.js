@@ -39,7 +39,7 @@ userRouter.get("/meetings", auth, async (req, res) => {
     res.send({ error: error.message });
   }
 });
-userRouter.get("/meetings:when", auth, async (req, res) => {
+userRouter.get("/meetings/:when", auth, async (req, res) => {
   const when = req.params.when;
   const { user_id } = req.body;
   let id = new mongoose.Types.ObjectId(user_id);
@@ -168,6 +168,52 @@ userRouter.get("/meetings:when", auth, async (req, res) => {
   }
 });
 
+userRouter.get("/:userid", async(req, res)=>{
+  const meetingOwner = req.params.userid;
+  let id = new mongoose.Types.ObjectId(meetingOwner);
+  try {
+    const meetingsData = await Usermodel.aggregate([
+      {
+        $match: { _id: id },
+      },
+      {
+        $lookup: {
+          from: "meetings",
+          localField: "meetings",
+          foreignField: "_id",
+          as: "meetingsData",
+        },
+      },
+      {
+        $addFields: {
+          futureMeetings: {
+            $filter: {
+              input: "$meetingsData",
+              as: "meeting",
+              cond: {
+                $gt: ["$$meeting.start_time", new Date()],
+              },
+            },
+          },
+        },
+      },
+      {
+        $project: {
+          name: 1,
+          email: 1,
+          futureMeetings: 1,
+          appointments: 1,
+          picture: 1,
+        },
+      },
+    ]);
+    res.send(meetingsData);
+  } catch (error) {
+    console.log(error);
+    res.send({ error: error.message });
+  }
+})
+
 userRouter.get("/logout", async (req, res) => {
   try {
     await client.LPUSH("blacklist", req.headers.authorization.split(" ")[1]);
@@ -182,20 +228,16 @@ userRouter.get("/refresh", async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];
   const x = await client.LRANGE("blacklist", 0, -1);
   if (x.includes(token)) {
-    res
-      .status(401)
-      .json({
-        msg: "please login again refresh token is blacklisted, you hacker!",
-      });
+    res.status(401).json({
+      msg: "please login again refresh token is blacklisted, you hacker!",
+    });
   } else {
     jwt.verify(token, process.env.rprivateKey, function (err, decoded) {
       if (err) {
-        res
-          .status(400)
-          .json({
-            massage: "refresh token is also rexpired! please login again",
-            err: err,
-          });
+        res.status(400).json({
+          massage: "refresh token is also rexpired! please login again",
+          err: err,
+        });
       } else {
         const normalToken = jwt.sign(
           { user_id: decoded.user_id },
