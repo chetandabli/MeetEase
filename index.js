@@ -12,10 +12,11 @@ const jwt = require('jsonwebtoken');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("./public"))
 
 app.get("/", (req, res) => {
-  app.use(express.static(path.join(__dirname, "public", "index.html")));
-  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+  app.use(express.static(path.join(__dirname, "public", "index.html", "signup.html")));
+  res.sendFile(path.resolve(__dirname, "public", "index.html", "signup.html"));
 });
 
 app.get('/auth/google',
