@@ -8,8 +8,12 @@ const privateKey = process.env.privateKey;
 const rprivateKey = process.env.rprivateKey;
 const {passport} = require("./config/google-oauth");
 const jwt = require('jsonwebtoken');
+const {meetingRouter} = require("./router/meetings.router")
+const bodyParser = require("body-parser");
+const {client} = require("./config/redis")
+const {userRouter} = require("./router/user.router")
 
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.use(express.static("./public"))
@@ -19,6 +23,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html", "signup.html"));
 });
 
+app.use("/meeting", meetingRouter);
+app.use("/user", userRouter);
+
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile','email'] }));
 
@@ -26,8 +33,8 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login',session:false }),
   function(req, res) {
     // Successful authentication, redirect home.
-    const token = jwt.sign({ userID: req.user._id }, privateKey, { expiresIn: 60 });
-    const rtoken = jwt.sign({ userID: req.user._id }, rprivateKey, { expiresIn: 300 });
+    const token = jwt.sign({ user_id: req.user._id }, privateKey, { expiresIn: 60 });
+    const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, { expiresIn: 300 });
     res.redirect(`/?token=${token}&rtoken=${rtoken}`);
 });
 
