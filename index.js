@@ -33,7 +33,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login',session:false }),
   function(req, res) {
     // Successful authentication, redirect home.
-    const token = jwt.sign({ user_id: req.user._id }, privateKey, { expiresIn: 60 });
+    const token = jwt.sign({ user_id: req.user._id }, privateKey, { expiresIn: 600 });
     const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, { expiresIn: 300 });
     res.redirect(`/?token=${token}&rtoken=${rtoken}`);
 });
