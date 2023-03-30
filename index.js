@@ -16,6 +16,8 @@ const {userRouter} = require("./router/user.router")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
+app.set('views', __dirname + '/public');
+app.set('view engine', 'ejs');
 app.use(express.static("./public"))
 
 app.get("/", (req, res) => {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Meeting</title>
+    <link rel="stylesheet" href="/css/book.css">
+    <script>
+        var userData = `<%= JSON.stringify(data) %>`;
+        function decodeHtml(html) {
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        }
+        let x = decodeHtml(userData)
+        x = JSON.parse(x)
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">
+            <img src="" alt="error loading image" id="userimg">
+            <h3 id="name"></h3>
+            <h1 id="head">One To One Meeting</h1>
+            <h3>Availability: <span id="avil"></span> meetings</h3>
+        </div>
+        <div id="right">
+            <div id="meetingheading">
+                <div>
+                    <h3>Select a Meeting</h3>
+                    <p>meeting link will be send to you registred email once meeting is booked</p>
+                </div>
+                <button id="meeteasebtn"><span>Powered By</span> MeetEase </button>
+            </div>
+            <div id="meetings"></div>
+        </div>
+    </div>
+    <script src="/scripts/book.js"></script>
+</body>
+
+</html>
