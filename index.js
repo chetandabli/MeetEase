@@ -19,7 +19,7 @@ app.use(express.json());
 app.set('views', __dirname + '/public');
 app.set('view engine', 'ejs');
 app.use(express.static("./public"))
-
+ 
 app.get("/", (req, res) => {
   app.use(express.static(path.join(__dirname, "public", "index.html", "signup.html")));
   res.sendFile(path.resolve(__dirname, "public", "index.html", "signup.html"));
@@ -35,9 +35,10 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login',session:false }),
   function(req, res) {
     // Successful authentication, redirect home.
-    const token = jwt.sign({ user_id: req.user._id }, privateKey, { expiresIn: 600 });
-    const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, { expiresIn: 300 });
+    const token = jwt.sign({ user_id: req.user._id }, privateKey, { expiresIn: 2000 });
+    const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, { expiresIn: 3000 });
     res.redirect(`/?token=${token}&rtoken=${rtoken}`);
+    
 });
 
 
