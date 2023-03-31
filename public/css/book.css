@@ -1,0 +1,163 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main{
+    width: 90%;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 20px;
+}
+
+#left{
+    width: 30%;
+    border-right: .5px solid rgba(0, 0, 0, 0.16);
+    padding: 40px;
+}
+#userimg{
+    border-radius: 50%;
+}
+#name{
+    margin: 5px 0 25px 0;
+    padding: 0 0 5px 0;
+    border-bottom: 4px solid #006BFF;
+    width: fit-content;
+}
+
+#right{
+    width: 70%;
+    padding: 0 0 20px 40px;
+    height: 90vh;
+}
+#meetingheading{
+    display: flex;
+    justify-content: space-between;
+}
+#meetingheading>:first-child>h3{
+    padding: 15px 0 5px 0;
+    margin: 0;
+}
+#meetingheading>:first-child>p{
+    padding: 0;
+    margin: 0;
+}
+#meeteasebtn{
+    border: none;
+    border-radius: 0 10px 0 10px;
+    background-color:  rgba(28, 99, 242, 0.12);
+    width: 130px;
+    padding: 0 15px;
+    font-weight: 600; 
+    font-size: 16px;
+    transition: .2s linear; 
+}
+#meeteasebtn>span{
+    font-weight: 400;
+    font-size: 12px;
+}
+#meeteasebtn:hover{
+    cursor: pointer;
+    background-color:#006BFF;
+    color: white;
+} 
+
+/* meeting div */
+
+#meetings{
+    height: 90%;
+    overflow-y: scroll;
+}
+#meetings::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  #meetings::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+  }
+  #meetings::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+#meetings>div{
+    display: flex;
+    border-bottom: 1px solid rgb(194, 193, 193);
+    margin: 3px 0;
+}
+#meetings>div>:first-child{
+    width: 65%;
+    padding: 10px;
+}
+#meetings>div>:last-child{
+    width: 35%;
+    padding: 10px;
+}
+.discrep{
+    margin-bottom: 0px;
+}
+#meetings>div>:first-child>h2{
+    padding: 0;
+    margin: 0;
+}
+.timing{
+    color:#0051ff;
+    font-size: 20px;
+    padding: 5px 15px;
+    text-align: center;
+    font-weight: 900;
+    border: 1px solid #5085f7;
+    border-radius: 5px;
+    margin: 0;
+}
+.timing>span{
+    padding: 5px 15px;
+    text-align: center;
+    font-size: 12px;
+    display: block;
+}
+.btnbooking{
+    background-color:#2970d4;
+    padding: 8px 16px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    border: 1px solid #0051ff;
+    transition: .1s linear;
+    width: 100%;
+}
+.cnfbtn{
+    background-color:rgb(67, 151, 67);
+    padding: 8px 16px;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    border: 1px solid rgb(67, 151, 67);
+    width: 0%;
+    margin-left: 5%;
+}
+.cnfbtn:hover{
+    background-color:white;
+    color: rgb(17, 17, 17);
+    cursor: pointer;
+}
+.btndiv{
+    margin: 10px 0 0 0;
+    width: 100%;
+}
+.btnbooking:hover{
+    background-color:white;
+    color: rgb(17, 17, 17);
+    cursor: pointer;
+}

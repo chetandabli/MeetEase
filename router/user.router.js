@@ -191,23 +191,30 @@ userRouter.get("/:userid", async(req, res)=>{
               input: "$meetingsData",
               as: "meeting",
               cond: {
-                $gt: ["$$meeting.start_time", new Date()],
+                $and: [
+                  { $eq: ["$$meeting.is_booked", false] },
+                  { $gt: ["$$meeting.start_time", new Date()] },
+                ],
               },
             },
           },
         },
       },
       {
+        $sort: {
+          "futureMeetings.start_time": 1,
+        },
+      },
+      {
         $project: {
           name: 1,
-          email: 1,
           futureMeetings: 1,
-          appointments: 1,
           picture: 1,
         },
       },
-    ]);
-    res.send(meetingsData);
+    ]);    
+    let userData = meetingsData[0]
+    res.render("book", {data: userData});
   } catch (error) {
     console.log(error);
     res.send({ error: error.message });

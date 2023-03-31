@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,44 +8,54 @@
     <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/OneToOne.css">
 </head>
-
 <body>
+    <div id="tocover">
     <div id="secnav">
-        <div>
-            <button id="back">
-                <i class="fa-solid fa-angle-left"></i>
+            <button id="back"><i class="fa-solid fa-angle-left"></i>
                 Back</button>
-            <h2>Edit One-on-One Event Type</h2>
+            <h2 id="headers">Add One-on-One Event Type</h2>
             <button id="share">Share</button>
-        </div>
     </div>
-
+</div>
     <!-- input box -->
-
     <div id="empty"></div>
-    <div id="input">
+    <div id="container">
         <div id="upperinput">
             <h4>What event is this?</h4>
-            <div>
-                <button id="cancel">Cancel</button>
-                <button id="next">Next</button>
+            <div class="ediot">
+                <button class="cancel">Cancel</button>
+                <button class="next">Create</button>
             </div>
-
         </div>
         <hr>
-
-
         <div id="secmain">
             <label for="">Event name</label><br>
             <input type="text" id="data1"><br><br><br>
             <label for="">Location</label><br>
             <input type="text" id="data2" placeholder="Add a location"><br><br><br>
             <label for="">Description/Instructions</label><br>
-            <input type="text" id="data3" placeholder="Write a summary and any details your invitee should know 
-              about the event.">
-           <div><h3>Event color</h3></div>
+            <input type="text" id="data3" placeholder="Write a summary and any details your invitee. ">
+          <div id="time">
+            <div id="t1">
+            <label for="start">Start meeting time</label>
+            <br>
+            <input type="time" name="start" id="startt">
+        </div>
+            <div id="t2">
+            <label for="end">End meeting time</label>
+            <br>
+            <input type="time" name="end" id="endt">
+        </div>
+          </div>
+          <div id="time">
+            <div id="t1">
+            <label for="start">Meeting Date</label>
+            <br>
+            <input type="date" name="start" id="startd">
+        </div>
+          </div>
+            <div id="ev_color"><h3>Event color</h3></div>
             <div id="color">
-
                 <div id="sc1"></div>
                 <div id="sc2"></div>
                 <div id="sc3"></div>
@@ -58,26 +67,13 @@
                 <div id="sc9"></div>
                 <div id="sc10"></div>
             </div>
-
         </div>
-
-        <hr>
-
-        <div id="upperinput">
-            <h4 style="">What event is this?</h4>
-            <div>
-                <button id="cancel">Cancel</button>
-                <button id="next">Next</button>
-            </div>
-
+        <hr id="hr">
+        <div class="ediot" id="lastbtn">
+            <button class="cancel">Cancel</button>
+            <button class="next" id="created">Create</button>
         </div>
     </div>
-
-
-
-
-
-
 </body>
-
+<script src="./scripts/one-o-one.js"></script>
 </html>

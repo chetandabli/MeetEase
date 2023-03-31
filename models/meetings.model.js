@@ -19,6 +19,9 @@ const meetingSchema = mongoose.Schema({
     location: {
         type: String, required: true
     },
+    created_by: {
+        type: String, required: true
+    },
     is_booked: {
         type: Boolean, default: false
     }, 
