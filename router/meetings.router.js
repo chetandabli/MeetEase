@@ -37,6 +37,7 @@ meetingRouter.post("/", async (req, res) => {
       description,
       location,
       color,
+      created_by: user_id
     });
     await newMeeting.save();
     await Usermodel.findByIdAndUpdate(user_id, {
