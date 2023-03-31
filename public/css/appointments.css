@@ -43,6 +43,7 @@
   justify-content: space-between;
 }
 #header1 > div {
+  /* border:2px solid red; */
   width: 50%;
 }
 #nav1 {
@@ -163,6 +164,7 @@
   color: black;
   padding: 0.5rem 0.5rem;
   border-radius: 1rem;
+  margin-right: 1rem;
 }
 
 #showa2b {
@@ -175,7 +177,7 @@
 #showa2 {
   display: flex;
   /* border:2px solid black; */
-  width: 17%;
+  width: 20%;
 }
 #showa2b img {
   width: 130%;
@@ -210,7 +212,7 @@
   /* border:1px solid black; */
   width:78%;
   margin:auto;
-
+margin-top: 34px;
   
 
 }
@@ -360,7 +362,6 @@ margin:auto;
     display: none;
   }
   #nav1>div:nth-child(5){
-    /* display: none; */
     margin-left: 300px;
     margin-right: -61px;
   }

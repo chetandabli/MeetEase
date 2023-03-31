@@ -1,5 +1,4 @@
 
-
 window.addEventListener("load", () => {
     appenddata();
   });
@@ -18,9 +17,12 @@ window.addEventListener("load", () => {
    
       let data = await responsedata.json();
       console.log(data[0])
-      let datatoappend = data[0].meetingsData;
+    //   let datatoappend = data[0].meetingsData;
+      let datatoappend = data[0].appointments;
+      console.log(datatoappend)
+      
       append(datatoappend);
-      show(data)
+
 
     } catch (err) {
       console.log(err);
@@ -80,42 +82,6 @@ function append(data){
   })
 }
   
-
-function show(data){
-let a = data[0].email
-let str = ""
-for(let  i = 0;i<=a.length-1;i++){
-  if(a[i]=="@"){
-    break;
-  }
-  str+=a[i]
-}
-
-document.querySelector("#span").innerText = `Calendly.com/${str}`
-document.querySelector("#span").style.color = "blue"
-
-document.querySelector("#username").innerText = data[0].name
-document.querySelector("#book").style.color = "blue"
-
-
-let b = data[0].picture
-
-// let image = document.createElement("img")
-// image.setAttribute("src",b)
-
-// let imagetoshow = document.querySelector("#imagea")
-// imagetoshow.src = b
-
-
-
-
-
-}
-
-
-
-
-
 function showtime(start,end){
   
   let a = new Date(start)
@@ -128,102 +94,9 @@ function showtime(start,end){
 
 
 
-async function removed(id){
-
-  // let responsedata = await fetch(`http://localhost:3000/user/delete/${id}`,{
-  //     method:"DELETE",
-  //     headers: {
-  //       "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))}`
-  //     }
-  //     })
-  
-  //     let data = await responsedata.json()
-  
-  // console.log(data)
-  // alert(data.msg)
-  // window.location.reload()
-
-}
-
-
- function linked(id){
-  console.log(id)
-}
-
-
-function booked(id){
-  console.log("go to view page")
-}
-
-
-
-let newmeeting = document.querySelector("#showa2a")
-newmeeting.addEventListener("click",()=>{
-
-
-
-})
-
-
 let appointments = document.querySelector("#appointments")
 appointments.addEventListener("click",()=>{
-  window.location.href ="./appointments.html"
-
-
+  window.location.href ="./dashboard.html"
+  
 })
 
-
-
-
-//yha par charo append karna he
-
-document.querySelector("#allmeet").addEventListener("click",appenddata)
-document.querySelector("#live").addEventListener("click",live)
-document.querySelector("#upcoming").addEventListener("click",upcoming)
-document.querySelector("#ended").addEventListener("click",ended)
-
-function live(){
-
-  appendremain("live")
-}
-
-function upcoming(){
-  appendremain("upcoming")
-}
-
-function ended(){
-  appendremain("ended")
-}
-
-async function appendremain(when) {
-
-
-  try {
-    let responsedata = await fetch(`http://localhost:3000/user/meetings/${when}`,{
-     
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))}`
-      }
-    });
- 
-    let data = await responsedata.json();
-    let datatoappend = data[0]
-console.log(datatoappend)
-    if(when == "live"){
-      console.log(datatoappend.currentMeetings)
-      append(datatoappend.currentMeetings)
-    }
-    if(when== "upcoming"){
-      append(datatoappend.futureMeetings)
-    }
-      if(when == "ended"){
-        append(datatoappend.pastMeetingsData )
-      }
-
-    show(data)
-
-  } catch (err) {
-    console.log(err);
-  }
-}
