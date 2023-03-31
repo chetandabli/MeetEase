@@ -17,9 +17,8 @@ window.addEventListener("load", () => {
       });
    
       let data = await responsedata.json();
-      console.log(data[0])
       let datatoappend = data[0].meetingsData;
-      append(datatoappend);
+      append(data, datatoappend);
       show(data)
 
     } catch (err) {
@@ -28,8 +27,7 @@ window.addEventListener("load", () => {
   }
 
 
-function append(data){
-
+function append(x, data){
   document.querySelector("#main-container").innerHTML = null;
   data.map(function (elem, index) {
 
@@ -51,16 +49,24 @@ function append(data){
        booking.setAttribute("id","book")
        booking.style.color  = "blue"
        booking.addEventListener("click", function () {
-        booked(elem._id)   
+        window.open(`http://localhost:3000/user/${x[0]._id}`)
       });
        let  hra = document.createElement("hr")
          hra.style.color = "#ededed"
        let bottomdiv = document.createElement("div");
           bottomdiv.setAttribute("id","botdiv")
        let link = document.createElement("button")
-       link.innerText = "Copy link"
-       link.addEventListener("click", function () {
-        linked(elem._id)   
+       link.innerText = "Copy link";
+       link.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(`localhost:3000/user/${x[0]._id}`);
+          link.innerText = "Copied"
+          setTimeout(() => {
+            link.innerText = "Copy link"
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
       });
        let remove = document.createElement("button");
        remove.innerText = "Delete";
@@ -83,15 +89,12 @@ function append(data){
 
 function show(data){
 let a = data[0].email
-let str = ""
-for(let  i = 0;i<=a.length-1;i++){
-  if(a[i]=="@"){
-    break;
-  }
-  str+=a[i]
-}
 
-document.querySelector("#span").innerText = `Calendly.com/${str}`
+document.getElementById("namecircle").innerText = data[0].name[0]
+document.querySelector("#span").innerText = `localhost:3000/user/${data[0]._id}`
+document.querySelector("#span").onclick = ()=>{
+  window.open(`http://localhost:3000/user/${data[0]._id}`)
+}
 document.querySelector("#span").style.color = "blue"
 
 document.querySelector("#username").innerText = data[0].name
@@ -157,14 +160,6 @@ function booked(id){
 
 
 
-let newmeeting = document.querySelector("#showa2a")
-newmeeting.addEventListener("click",()=>{
-
-
-
-})
-
-
 let appointments = document.querySelector("#appointments")
 appointments.addEventListener("click",()=>{
   window.location.href ="./appointments.html"
@@ -212,13 +207,13 @@ async function appendremain(when) {
 console.log(datatoappend)
     if(when == "live"){
       console.log(datatoappend.currentMeetings)
-      append(datatoappend.currentMeetings)
+      append(data, datatoappend.currentMeetings)
     }
     if(when== "upcoming"){
-      append(datatoappend.futureMeetings)
+      append(data, datatoappend.futureMeetings)
     }
       if(when == "ended"){
-        append(datatoappend.pastMeetingsData )
+        append(data, datatoappend.pastMeetingsData )
       }
 
     show(data)
@@ -227,3 +222,12 @@ console.log(datatoappend)
     console.log(err);
   }
 }
+// by chetan
+
+document.getElementById("logo").onclick = ()=>{
+  location.assign("../index.html")
+}
+
+document.getElementById("showa2").addEventListener("click",()=>{
+  location.assign("../OneToOne.html")
+})
