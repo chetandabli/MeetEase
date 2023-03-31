@@ -38,7 +38,7 @@ x.futureMeetings.forEach(el => {
     btn1.onclick = ()=>{
         if(btn1.innerText == "Book Meeting"){
             btn1.innerText = "Cancel";
-            btn1.style.backgroundColor = "#2970d4";
+            btn1.style.backgroundColor = "gray";
             btn1.style.width = "50%";
             btn1.style.back
             setTimeout(() => {
@@ -60,7 +60,7 @@ x.futureMeetings.forEach(el => {
         btn1.style.backgroundColor = "white";
       });
       btn1.addEventListener("mouseout", function() {
-        btn1.style.backgroundColor = "#2970d4";
+        btn1.style.backgroundColor = "gray";
       });
     let btn2 = create("button");
     btn2.innerText = "Confirm";
@@ -89,20 +89,17 @@ img.addEventListener("error", function(event) {
 
 // for booking with shduler
 async function bookMeeting(id){
-    let token = JSON.parse(localStorage.getItem("token"))
-    if(token){
+    if(localStorage.getItem("token")){
         try {
-            let res = await fetch(`${baseUrl}meeting/book/${id}`, {
-                method: "POST",
+            let res = fetch(`${baseUrl}meeting/book/${id}`, {
+                method: POST,
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization":"Bearer "+ token
+                    "Authorization":`Bearer ${localStorage.getItem("token")}`
                 }
             })
-            if(res.ok){
-                // redirect to appointment page
-                // console.log("done")
-            }
+            res = await res.json()
+            console.log(res);
         } catch (error) {
             console.log(error)
         }
