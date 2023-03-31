@@ -31,6 +31,10 @@ nav {
   margin-top: 20px;
 }
 
+#logo{
+  cursor: pointer;
+}
+
 nav img {
   width: 200px;
 }
@@ -54,6 +58,9 @@ nav img {
   font-size: 16px;
   font-weight: 700;
 }
+#top_nav>div {
+  cursor: pointer;
+}
 
 #acc_btn {
   display: flex;
@@ -69,6 +76,10 @@ nav img {
   padding: 5px;
   padding-inline: 8px;
   font-weight: 600;
+  transition: .2s linear;
+}
+#my_ac_btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #about {
