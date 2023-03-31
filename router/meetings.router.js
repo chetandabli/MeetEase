@@ -74,6 +74,11 @@ meetingRouter.post("/book/:meetingId", async (req, res) => {
       booked_by: user_id,
     });
 
+    await Usermodel.findByIdAndUpdate(
+      user_id,
+      { $push: { appointments: meetingId } }
+    );
+
     res.status(200).json({ message: "Meeting booked successfully!" });
   } catch (error) {
     console.log(error);
