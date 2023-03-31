@@ -209,81 +209,8 @@
 
 #main-container {
 
-  /* border:1px solid black; */
+  border:1px solid black;
   width:78%;
   margin:auto;
 
-  
-
-}
-
-#main-container{
-  /* border:2px solid red; */
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
- 
-  column-gap: 10px;
-  row-gap: 20px;
-  
-}
-#main-container>div{
-  border-radius: 4px;
-  width:90%;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-}
-
-#title{
-  margin-top: 5px;
-  font-size: large;
-  margin-bottom: 4px;
-margin-left: 10px;
-
-}
-#para{
-  font-size: medium;
-  margin-bottom: 4px;
-margin-left: 10px;
-}
-#book{
-  font-size: medium;
-  margin-bottom: 6px;
-margin-left: 10px;
-margin-top: 6px;
-}
-
-#botdiv{
-display: flex;
-justify-content: space-between;
-width:92%;
-margin:auto;
-}
-
-#main-container>div:hover{
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  
-}
-
-#main-container button:hover{
-  cursor: pointer;
-}
-
-#main-container button{
-  font-weight: 500;
-  font-size: 15px;
-  color:white;
-  border: 0px;
-  padding:6px;
-  border-radius: 5px;
-  /* display:block; */
-  /* margin:auto; */
-  margin-top: 14px;
-  margin-bottom: 8px;
-}
-#book:hover{
-  cursor: pointer;
-
-}
-#book{
-  margin-bottom: 24px;
 }
