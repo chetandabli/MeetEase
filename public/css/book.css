@@ -146,6 +146,7 @@ body{
     border: 1px solid rgb(67, 151, 67);
     width: 0%;
     margin-left: 5%;
+    justify-content: center;
 }
 .cnfbtn:hover{
     background-color:white;
