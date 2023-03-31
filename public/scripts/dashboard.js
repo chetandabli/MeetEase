@@ -132,20 +132,21 @@ function showtime(start,end){
 
 
 async function removed(id){
-
-  // let responsedata = await fetch(`http://localhost:3000/user/delete/${id}`,{
-  //     method:"DELETE",
-  //     headers: {
-  //       "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))}`
-  //     }
-  //     })
-  
-  //     let data = await responsedata.json()
-  
-  // console.log(data)
-  // alert(data.msg)
-  // window.location.reload()
-
+  try {
+    let responsedata = await fetch(`http://localhost:3000/meeting/${id}`,{
+      method:"DELETE",
+      headers: {
+        "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))}`
+      }
+      })
+  let res = await responsedata.json()
+    if(responsedata.ok){
+      alert(res.message);
+      appenddata();
+    }
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 

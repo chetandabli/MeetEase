@@ -87,6 +87,39 @@ meetingRouter.post("/book/:meetingId", async (req, res) => {
   }
 });
 
+meetingRouter.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { user_id } = req.body;
+
+  try {
+    const meeting = await MeetingModel.findById(id);
+
+    if (!meeting) {
+      return res.status(404).json({ message: 'Meeting not found' });
+    }
+
+    if (meeting.created_by !== user_id) {
+      return res.status(401).json({ message: 'Unauthorized' });
+    }
+
+    const deletedMeeting = await MeetingModel.findByIdAndDelete(id);
+
+    if (!deletedMeeting) {
+      return res.status(404).json({ message: 'Meeting not found' });
+    }
+
+      await Usermodel.findByIdAndUpdate(
+      user_id,
+      { $pull: { meetings: id } }
+    );
+
+    res.status(200).json({ message: 'Meeting deleted successfully!' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+})
+
 module.exports = {
   meetingRouter,
 };

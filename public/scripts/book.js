@@ -1,12 +1,19 @@
 const create = (x)=>{
     return document.createElement(`${x}`)
 }
+const get = (x)=>{
+    return document.getElementById(`${x}`)
+}
 
 const baseUrl = "http://localhost:3000/"
 
-document.getElementById("name").innerText = x.name
-document.getElementById("userimg").src = x.picture
-document.getElementById("avil").innerText = x.futureMeetings.length;
+get("name").innerText = x.name
+get("userimg").src = x.picture
+get("avil").innerText = x.futureMeetings.length;
+
+get("meeteasebtn").onclick = ()=>{
+    location.assign("../index.html")
+}
 
 
 
@@ -78,10 +85,10 @@ x.futureMeetings.forEach(el => {
 
     maindiv.append(firstinner1, firstinner2);
 
-    document.getElementById("meetings").append(maindiv)
+    get("meetings").append(maindiv)
 });
 
-const img = document.getElementById("userimg")
+const img = get("userimg")
 img.addEventListener("error", function(event) {
   event.target.src = "https://lh3.googleusercontent.com/a/AGNmyxYY4U5evwrlin9S9fU55mDT5rv2gsappcXO26EeJQ=s96-c"
   event.onerror = null
@@ -92,7 +99,7 @@ async function bookMeeting(id){
     let token = JSON.parse(localStorage.getItem("token"))
     if(token){
         try {
-            let res = fetch(`${baseUrl}meeting/book/${id}`, {
+            let res = await fetch(`${baseUrl}meeting/book/${id}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -101,6 +108,9 @@ async function bookMeeting(id){
             })
             if(res.ok){
                 location.assign("../appointments.html")
+            }else{
+                let x = await res.json()
+                alert(x.message)
             }
         } catch (error) {
             console.log(error)
