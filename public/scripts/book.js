@@ -100,8 +100,7 @@ async function bookMeeting(id){
                 }
             })
             if(res.ok){
-                // redirect to appointment page
-                // console.log("done")
+                location.assign("../appointments.html")
             }
         } catch (error) {
             console.log(error)
