@@ -32,7 +32,8 @@
 }
 #share {
     background-color: #F2F2F2;
-    color: #6E6E6E;
+    color: #a7a7a7;
+    visibility: calc(30);
 }
 
 #empty {
