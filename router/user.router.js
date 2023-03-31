@@ -191,7 +191,10 @@ userRouter.get("/:userid", async(req, res)=>{
               input: "$meetingsData",
               as: "meeting",
               cond: {
-                $gt: ["$$meeting.start_time", new Date()],
+                $and: [
+                  { $eq: ["$$meeting.is_booked", false] },
+                  { $gt: ["$$meeting.start_time", new Date()] },
+                ],
               },
             },
           },
@@ -199,8 +202,8 @@ userRouter.get("/:userid", async(req, res)=>{
       },
       {
         $sort: {
-          "futureMeetings.start_time": 1
-        }
+          "futureMeetings.start_time": 1,
+        },
       },
       {
         $project: {
@@ -209,7 +212,7 @@ userRouter.get("/:userid", async(req, res)=>{
           picture: 1,
         },
       },
-    ]);
+    ]);    
     let userData = meetingsData[0]
     res.render("book", {data: userData});
   } catch (error) {
