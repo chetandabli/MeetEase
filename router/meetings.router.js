@@ -18,7 +18,7 @@ meetingRouter.get("/", async (req, res) => {
 });
 
 meetingRouter.post("/", async (req, res) => {
-  const {
+  let {
     start_time,
     end_time,
     date,
@@ -28,6 +28,11 @@ meetingRouter.post("/", async (req, res) => {
     color,
     user_id,
   } = req.body;
+  if(!color){
+    let x = Math.floor(Math.random() * 11);
+    const colors = ['white', 'black', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'gray', 'pink'];
+    color = colors[x]
+  }
   try {
     let newMeeting = new MeetingModel({
       start_time,
