@@ -29,8 +29,8 @@ meetingRouter.post("/", async (req, res) => {
     user_id,
   } = req.body;
   if(!color){
-    let x = Math.floor(Math.random() * 11);
-    const colors = ['white', 'black', 'red', 'blue', 'green', 'yellow', 'orange', 'purple', 'gray', 'pink'];
+    let x = Math.floor(Math.random() * 10);
+    const colors = ['white', 'black', 'blue', 'green', 'yellow', 'orange', 'purple', 'gray', 'pink'];
     color = colors[x]
   }
   try {

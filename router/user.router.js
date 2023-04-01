@@ -6,6 +6,47 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { auth } = require("../middleware/authenticate");
 const mongoose = require("mongoose");
+const { MeetingModel } = require("../models/meetings.model");
+
+userRouter.get("/appointments", auth, async (req, res)=>{
+  const { user_id } = req.body;
+  let id = new mongoose.Types.ObjectId(user_id);
+  try {
+    const userData = await Usermodel.findById(user_id);
+
+  if (!userData) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  const appointmentData = await Usermodel.aggregate([
+    {
+      $match: { _id: id },
+    },
+    {
+      $lookup: {
+        from: "meetings",
+        localField: "appointments",
+        foreignField: "_id",
+        as: "meetingsData",
+      },
+    },
+    {
+      $project: {
+        name: 1,
+        email: 1,
+        meetingsData: 1,
+        appointments: 1,
+        picture: 1,
+      },
+    },
+  ]);
+
+  res.status(200).json(appointmentData);
+  } catch (error) {
+    console.log("yes")
+    console.log(error)
+  }
+})
 
 userRouter.get("/meetings", auth, async (req, res) => {
   const { user_id } = req.body;
@@ -219,7 +260,49 @@ userRouter.get("/:userid", async(req, res)=>{
     console.log(error);
     res.send({ error: error.message });
   }
-})
+});
+
+// userRouter.get('/appointmentdata', auth, async (req, res) => {
+//   const { user_id } = req.body;
+//   console.log(mongoose.Types.ObjectId.isValid(user_id))
+//   if (user_id.length !== 24) {
+//     return res.status(400).json({ message: "Invalid user ID" });
+//   }
+//   let id = new mongoose.Types.ObjectId(user_id);
+//   try {
+//     const userData = await Usermodel.findById(user_id);
+
+//   if (!userData) {
+//     return res.status(404).json({ message: "User not found" });
+//   }
+
+//   const appointmentData = await Usermodel.aggregate([
+//     {
+//       $match: { _id: id },
+//     },
+//     {
+//       $lookup: {
+//         from: "meetings",
+//         localField: "appointments",
+//         foreignField: "_id",
+//         as: "meetingsData",
+//       },
+//     },
+//     {
+//       $project: {
+//         name: 1,
+//         appointments: "$meetingsData",
+//         picture: 1,
+//       },
+//     },
+//   ]);
+
+//   res.status(200).json(appointmentData);
+//   } catch (error) {
+//     console.log("yes")
+//     console.log(error)
+//   }
+// });
 
 userRouter.get("/logout", async (req, res) => {
   try {
