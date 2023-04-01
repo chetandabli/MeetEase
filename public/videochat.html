@@ -170,11 +170,17 @@
     <script>
         let params = new URL(document.location).searchParams;
         myName = params.get("name");
+        let opponame = params.get("opponame")
+        let oppoid = params.get("oppoid")
         let myUserId = params.get("user_id");
         document.getElementById("nameHere").innerHTML = myName || "Unknown";
         
         if(myName && myUserId){
             connectSocket();
+        }
+
+        if(opponame){
+            document.getElementById("callName").value = opponame;
         }
     </script>
 </body>
