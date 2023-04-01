@@ -24,7 +24,7 @@ x.futureMeetings.forEach(el => {
     const endTime = endDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     const meetingDate = new Date(el.date);
     const dateString = meetingDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
+    id = el._id
 
     let maindiv = create("div");
     let firstinner1 = create("div");
@@ -117,5 +117,10 @@ async function bookMeeting(id){
     }else{
         location.assign("../signup.html")
     }
+}
+
+document.getElementById("videochat").onclick = ()=>{
+    let n = x.name.split(" ")
+    location.assign(baseUrl+`videochat.html?name=unknown&user_id=notset&oppoid=${x._id}&opponame=${n[0]}`)
 }
 
