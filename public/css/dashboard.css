@@ -167,6 +167,17 @@
   padding: 0.5rem 0.5rem;
   border-radius: 1rem;
 }
+#livemeeting {
+  border: 1px solid rgb(230, 135, 135);
+  color: rgb(255, 255, 255);
+  background-color: #0069ff;
+  padding: 0.5rem 0.5rem;
+  border-radius: 1rem;
+  margin-right: 5px;
+}
+#livemeeting :hover{
+  cursor: pointer;
+}
 
 #showa2b {
   width: 10%;
@@ -178,7 +189,6 @@
 #showa2 {
   display: flex;
   /* border:2px solid black; */
-  width: 17%;
 }
 #showa2b img {
   width: 130%;

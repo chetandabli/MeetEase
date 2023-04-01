@@ -1,0 +1,250 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  color: var(--color-black);
+}
+#topcover{
+  background-color:aliceblue;
+  width: 100%;
+}
+#toppest {
+  max-width: 1200px;
+  text-align: end;
+  background-color:aliceblue;
+  margin: auto;
+  height: 30px;
+}
+
+#toppest h3 {
+  font-size: 16px;
+  color: var(--color-grey);
+  padding-top: 5px;
+}
+nav {
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+nav img {
+  width: 200px;
+}
+:root {
+  --color-white: #ffff;
+  --color-light: #f4f4f4;
+  --color-dark: #525252;
+  --color-black: #0B3558;
+  --color-primary: #006BFF;
+  --color-primary-light: rgba(28, 99, 242, 0.12);
+  --color-success: #22c857;
+  --color-warning: #ffce31;
+  --color-grey: rgb(71, 103, 136);
+
+}
+
+#top_nav {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#acc_btn {
+  display: flex;
+  align-items: center;
+}
+
+#my_ac_btn {
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-size: 20px;
+  border: none;
+  padding: 5px;
+  padding-inline: 8px;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.dialWrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.dialNumpadHWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+.dialNumber {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.incomingWrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionButton{
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 27px;
+  font-weight: 600;
+  color: var(--color-light);
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  border: 2px solid var(--color-primary);
+}
+.actionButton:nth-child(2){
+  color: red;
+  background-color: var(--color-light);
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 100px;
+  border: 2px solid red;
+  margin-top: 40px;
+}
+.actionButton:nth-child(1){
+  color: green;
+  background-color: var(--color-light);
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid green;
+  margin-top: 40px;
+
+}
+.dialActionButton {
+  display: flex;
+  width: 80px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  font-size:27px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-light);
+  background-color: var(--color-primary);
+  border-radius: 10px;
+  border: 2px solid var(--color-primary);
+}
+#errorMessage {
+  color: red;
+}
+input{
+  width: 450px;
+  border-radius: 5px;
+  border: 2px solid var(--color-primary);
+}
+::placeholder{
+  color: var(--color-primary);
+}
+#answer{
+}
+.itemWrapper > h2{
+  font-size: 35px;
+  text-align: center;
+  width: 520px;
+}
+#callfor{
+  display: flex;
+}
+#callfor h1{
+  font-size: 70px;
+  margin-top: 20px;
+  color: #0c69eb;
+}
+
+
+/* Footer Part */
+
+#bye{
+  display: flex;
+  justify-content: space-evenly;
+width: 100%;
+background-color: var(--color-black);
+color: var(--color-light);
+position: fixed;
+bottom: 0;
+height: 30px;
+font-weight: 600;
+}
+#social{
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+}
+.pops{
+  font-size: 12px;
+  background-color: rgb(220, 235, 248);
+  padding: 3px;
+  border-radius: 12px;
+  color: var(--color-primary);
+}
+#eng h3{
+  font-size: 16px;
+}
+#bye p{
+  font-size: 16px;
+}
+#userInfo h1{
+  font-size: 40px;
+  color: var(--color-grey);
+}
+#nameHere{
+  font-size: 40px;
+  color: var(--color-primary);
+}
+#incoming i{
+color: var(--color-primary);
+}
+#incoming {
+  font-size: 40px;
+  color: var(--color-dark);
+}
+#otherUserNameC{
+font-size: 30px;
+}
+#oncall{
+  font-size: 30px;
+}
+#callings{
+  font-size: 40px;
+  color: var(--color-dark);
+}
+#call{
+  width: 100%;
+}
+.dialActionButton{
+}
+.dialNumber{
+  padding-left: 40%;
+}
+#timer{
+  font-size: 30px;
+  text-align: center;
+}
+#otherUserNameC{
+  font-size: 30px;
+}

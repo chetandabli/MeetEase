@@ -1,4 +1,6 @@
-const baseUrl = "http://localhost:3000/"
+const baseUrl = "http://localhost:3000/";
+
+let myname, myUserId;
 
 window.addEventListener("load", () => {
     appenddata();
@@ -24,6 +26,11 @@ window.addEventListener("load", () => {
     } catch (error) {
         console.log(error)
     }
+}
+
+const livebtn = document.getElementById("livemeeting").onclick = ()=>{
+  let x = myname.split(" ")
+  location.assign(baseUrl+`videochat.html?name=${x[0]}&user_id=${myUserId}`)
 }
   
 
@@ -128,8 +135,8 @@ document.querySelector("#span").style.color = "blue"
 
 document.querySelector("#username").innerText = data[0].name
 document.querySelector("#book").style.color = "blue"
-
-
+myname = data[0].name
+myUserId = data[0]._id
 let b = data[0].picture
 
 // let image = document.createElement("img")
@@ -258,6 +265,6 @@ document.getElementById("logo").onclick = ()=>{
   location.assign("../index.html")
 }
 
-document.getElementById("showa2").addEventListener("click",()=>{
+document.getElementById("showa2a").addEventListener("click",()=>{
   location.assign("../OneToOne.html")
 })
