@@ -9,8 +9,9 @@ h2{
 }
 
 #logo{
-    text-align: center;
-    margin: 50px 0 20px 0;
+    width: 80%;
+
+    margin: 50px auto 20px auto;
 }
 
 #logo img{
@@ -18,16 +19,20 @@ h2{
 }
 
 #container{
-    border: 1px solid black;
     width: 30%;
     margin: auto;
     padding: 50px 30px;
     border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#container h1{
+    font-size: 50px;
 }
 
 #container input{
     display: block;
-    width: 100%;
+    width: 30%;
     margin: 10px 0;
     height: 40px;
     border-radius: 10px;
@@ -95,4 +100,26 @@ button{
 
 .mgn{
     margin: 20px 0;
+}
+
+#main{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    height: 500px;
+}
+
+#main div{
+    height: 200px;
+}
+
+#main div:nth-child(2){
+    width: 60%;
+    height: 100%;
+
+}
+
+#main div:nth-child(2) img{
+    height: 100%;
+    background-image: url("images.ctfassets.net/k0lk9kiuza3o/59iAyVjqqMENsNFL0v6bl2/07024e4c1f4013d7cf49de86e70e16b5/Bg-Shape.svg");
 }
