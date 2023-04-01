@@ -12,14 +12,14 @@ const {meetingRouter} = require("./router/meetings.router")
 const bodyParser = require("body-parser");
 const {client} = require("./config/redis")
 const {userRouter} = require("./router/user.router")
-const { passport2 } = require("./config/microsoft-oauth");
+// const { passport2 } = require("./config/microsoft-oauth");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.set('views', __dirname + '/public');
 app.set('view engine', 'ejs');
-app.use(passport2.initialize());
+// app.use(passport2.initialize());
 app.use(express.static("./public"))
  
 app.get("/", (req, res) => {
@@ -42,24 +42,24 @@ app.get('/auth/google/callback',
     res.redirect(`/?token=${token}&rtoken=${rtoken}`);
 });
 
-app.get(
-  "/auth/microsoft",
-  passport2.authenticate("azure_oauth2", { scope: ["profile", "email"] })
-);
+// app.get(
+//   "/auth/microsoft",
+//   passport2.authenticate("azure_oauth2", { scope: ["profile", "email"] })
+// );
 
-app.get(
-  "/auth/microsoft/callback",
-  passport2.authenticate("azure_oauth2", { failureRedirect: "/login" }),
-  (req, res) => {
-    const token = jwt.sign({ user_id: req.user._id }, privateKey, {
-      expiresIn: 60,
-    });
-    const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, {
-      expiresIn: 300,
-    });
-    res.redirect(`/?token=${token}&rtoken=${rtoken}`);
-  }
-);
+// app.get(
+//   "/auth/microsoft/callback",
+//   passport2.authenticate("azure_oauth2", { failureRedirect: "/login" }),
+//   (req, res) => {
+//     const token = jwt.sign({ user_id: req.user._id }, privateKey, {
+//       expiresIn: 60,
+//     });
+//     const rtoken = jwt.sign({ user_id: req.user._id }, rprivateKey, {
+//       expiresIn: 300,
+//     });
+//     res.redirect(`/?token=${token}&rtoken=${rtoken}`);
+//   }
+// );
 
 
 app.listen(process.env.PORT, async () => {

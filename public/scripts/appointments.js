@@ -5,9 +5,8 @@ window.addEventListener("load", () => {
   
 
   async function appenddata() {
-
     try {
-      let responsedata = await fetch("http://localhost:3000/user/meetings",{
+      let responsedata = await fetch("http://localhost:3000/user/appointments",{
        
         headers: {
           "Content-Type": "application/json",

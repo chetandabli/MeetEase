@@ -12,7 +12,7 @@ const auth = async(req, res, next)=>{
                 if(err){
                     res.status(401).json({"msg": err.message})
                 }else{
-                    req.body.user_id = decoded.user_id
+                    req.body.user_id = decoded.user_id;
                     next()
                 }
               });

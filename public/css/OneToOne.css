@@ -20,7 +20,6 @@
 #secnav h2 {
     font-size: 40px;
     font-weight: lighter;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 30px;
     color: #1b1a1a;
 }
@@ -70,7 +69,6 @@ label{
     justify-content: space-between;
     width: 95%;
     margin: auto;
-    font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
 
 }
@@ -93,7 +91,6 @@ label{
     margin-left: 50px;
     margin-top: 50px;
     height: 530px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     color: #2e2d2d;
 }
