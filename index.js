@@ -12,6 +12,8 @@ const {meetingRouter} = require("./router/meetings.router")
 const bodyParser = require("body-parser");
 const {client} = require("./config/redis")
 const {userRouter} = require("./router/user.router")
+const { createServer } = require('http');
+const { getIO, initIO } = require('./config/socket');
 // const { passport2 } = require("./config/microsoft-oauth");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,7 +25,6 @@ app.set('view engine', 'ejs');
 app.use(express.static("./public"))
  
 app.get("/", (req, res) => {
-  app.use(express.static(path.join(__dirname, "public", "index.html", "signup.html")));
   res.sendFile(path.resolve(__dirname, "public", "index.html", "signup.html"));
 });
 
@@ -62,7 +63,10 @@ app.get('/auth/google/callback',
 // );
 
 
-app.listen(process.env.PORT, async () => {
+const httpServer = createServer(app);
+initIO(httpServer);
+
+httpServer.listen(process.env.PORT, async () => {
   try {
     await connection;
     console.log("connected to DB");
@@ -71,3 +75,4 @@ app.listen(process.env.PORT, async () => {
   }
   console.log("listening on *:" + process.env.PORT);
 });
+getIO();

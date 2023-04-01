@@ -109,8 +109,7 @@ async function bookMeeting(id){
             if(res.ok){
                 location.assign("../appointments.html")
             }else{
-                let x = await res.json()
-                alert(x.message)
+                location.assign("../signup.html")
             }
         } catch (error) {
             console.log(error)

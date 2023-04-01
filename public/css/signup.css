@@ -10,7 +10,7 @@ h2{
 
 #logo{
     width: 80%;
-
+    cursor: pointer;
     margin: 50px auto 20px auto;
 }
 
