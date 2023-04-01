@@ -78,7 +78,21 @@ nav img {
   font-weight: 600;
   transition: .2s linear;
 }
-#my_ac_btn:hover {
+#logout_btn {
+  border-radius: 5px;
+  background-color: rgb(199, 19, 19);
+  color: var(--color-light);
+  font-size: 20px;
+  border: none;
+  padding: 5px;
+  margin-left: 5px;
+  padding-inline: 8px;
+  font-weight: 600;
+  transition: .2s linear;
+  display: none;
+}
+
+#my_ac_btn:hover, #logout_btn:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

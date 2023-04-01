@@ -8,6 +8,16 @@ const { auth } = require("../middleware/authenticate");
 const mongoose = require("mongoose");
 const { MeetingModel } = require("../models/meetings.model");
 
+userRouter.get("/logout", async (req, res) => {
+  try {
+    await client.LPUSH("blacklist", req.headers.authorization.split(" ")[1]);
+    await client.LPUSH("rblacklist", req.headers.authorization.split(" ")[3]);
+    res.status(200).json({ msg: "you are logged out" });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 userRouter.get("/appointments", auth, async (req, res)=>{
   const { user_id } = req.body;
   let id = new mongoose.Types.ObjectId(user_id);
@@ -304,15 +314,7 @@ userRouter.get("/:userid", async(req, res)=>{
 //   }
 // });
 
-userRouter.get("/logout", async (req, res) => {
-  try {
-    await client.LPUSH("blacklist", req.headers.authorization.split(" ")[1]);
-    await client.LPUSH("rblacklist", req.headers.authorization.split(" ")[3]);
-    res.status(200).json({ msg: "you are logged out" });
-  } catch (error) {
-    console.log(error);
-  }
-});
+
 
 userRouter.get("/refresh", async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];

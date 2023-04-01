@@ -1,8 +1,30 @@
-
+const baseUrl = "http://localhost:3000/"
 
 window.addEventListener("load", () => {
     appenddata();
   });
+
+  // logout
+  const logoutbtn = document.getElementById("logout_btn");
+  logoutbtn.onclick = async()=>{
+    try {
+        let res = await fetch(`${baseUrl}user/logout`, {
+            method: "GET",
+            headers:{
+                "Content-Type": "application/json",
+                "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))} rtokenBearer ${localStorage.getItem("refresh_token")}`
+            }
+        });
+
+        if(res.ok){
+            localStorage.removeItem("token");
+            localStorage.removeItem("refresh_token");
+            location.assign(baseUrl);
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
   
 
   async function appenddata() {
@@ -97,7 +119,7 @@ function append(x, data){
 function show(data){
 let a = data[0].email
 
-document.getElementById("namecircle").innerText = data[0].name[0]
+document.getElementById("namecircle").innerText = ` ${data[0].name[0]}`
 document.querySelector("#span").innerText = `localhost:3000/user/${data[0]._id}`
 document.querySelector("#span").onclick = ()=>{
   window.open(`http://localhost:3000/user/${data[0]._id}`)
