@@ -17,6 +17,13 @@ window.addEventListener("load", () => {
       });
    
       let data = await responsedata.json();
+      if(data.msg == "jwt malformed" || data.msg =="jwt expired"){
+        localStorage.removeItem("token")
+        localStorage.removeItem("refresh_token")
+        window.location.href = "./signup.html"
+    
+      }
+      console.log(data)
       let datatoappend = data[0].meetingsData;
       append(data, datatoappend);
       show(data)
