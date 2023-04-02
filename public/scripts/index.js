@@ -3,7 +3,7 @@ let token = params.get("token");
 let refresh_token = params.get("rtoken");
 const loginbtn = document.getElementById("my_ac_btn")
 const logoutbtn = document.getElementById("logout_btn");
-const baseUrl = "http://localhost:3000/"
+const baseUrl = "https://busy-motion-6100-production.up.railway.app/"
 document.getElementById("logo").onclick = ()=>{
     location.assign("../index.html")
 }

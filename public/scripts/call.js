@@ -314,5 +314,5 @@ function callProgress() {
 }
 
 document.getElementById("my_ac_btn").onclick = ()=>{
-    location.assign("http://localhost:3000/dashboard.html")
+    location.assign("https://busy-motion-6100-production.up.railway.app/dashboard.html")
 }

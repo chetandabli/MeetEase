@@ -6,7 +6,7 @@
 //   {
 //     clientID: "534626ad-2078-46b2-ad19-3fe5e7b409c2",
 //     clientSecret: "74c9fb95-f6fd-4b53-ab66-f0b1fb647cff",
-//     callbackURL: "http://localhost:3000/auth/microsoft/callback",
+//     callbackURL: "https://busy-motion-6100-production.up.railway.app/auth/microsoft/callback",
 //     resource: "https://graph.microsoft.com/",
 //   },
 //   async (accessToken, refreshToken, profile, cb) => {
