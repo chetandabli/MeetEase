@@ -5,7 +5,7 @@ const get = (x)=>{
     return document.getElementById(`${x}`)
 }
 
-const baseUrl = "http://localhost:3000/"
+const baseUrl = "https://busy-motion-6100-production.up.railway.app/"
 
 get("name").innerText = x.name
 get("userimg").src = x.picture

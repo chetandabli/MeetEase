@@ -38,7 +38,7 @@ let postData = () => {
         location: event_location,
     }
     console.log(event_data)
-    fetch("http://localhost:3000/meeting",{
+    fetch("https://busy-motion-6100-production.up.railway.app/meeting",{
         method:"POST",
         headers:{
             "Content-type":"application/json",
