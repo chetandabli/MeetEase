@@ -8,7 +8,13 @@
     WORKFLOW =>
     ...........
     
-    ![meetease-data-relatioship](https://user-images.githubusercontent.com/107751849/229443766-64babc9b-33b4-4905-a9b0-75cc9d7f74c7.png)
+![meetease-data-relatioship](https://user-images.githubusercontent.com/107751849/229445013-7b309b18-2043-4178-86e6-c2b126499cea.png)
+
+
+HomePage, Video Calling => Kuldeep Tiwari
+Checking meeting for user and deploying, logout => Chetan Ram
+Appointments => Keerti pawar
+login => ujjwal
     
     deploy link :- render (https://easemeet.onrender.com/)
     railway (https://busy-motion-6100-production.up.railway.app/)
