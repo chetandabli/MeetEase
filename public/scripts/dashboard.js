@@ -2,6 +2,12 @@ const baseUrl = "https://busy-motion-6100-production.up.railway.app/";
 
 let myname, myUserId;
 
+2
+let token = JSON.parse(localStorage.getItem("token")) || null
+if(!token){
+  window.location.href = "./signup.html"
+}
+
 window.addEventListener("load", () => {
     appenddata();
   });
