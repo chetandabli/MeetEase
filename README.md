@@ -10,5 +10,5 @@
     
     ![meetease-data-relatioship](https://user-images.githubusercontent.com/107751849/229443766-64babc9b-33b4-4905-a9b0-75cc9d7f74c7.png)
     
-    deploy link :- render (https://easemeet.onrender.com/)
+    deploy link :-
     railway (https://busy-motion-6100-production.up.railway.app/)
