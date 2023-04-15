@@ -68,6 +68,38 @@ https://busy-motion-6100-production.up.railway.app/
 - [@kuldeep55567](https://github.com/kuldeep55567)
 - [@KeertiPawar8](https://github.com/KeertiPawar8)
 - [@ujjwal1309](https://github.com/ujjwal1309)
+
+## Database Schema
+
+### User
+
+| Field Name | Data Type | Required |
+| ---------- | ---------| -------- |
+| _id        | ObjectId | Yes      |
+| name       | String   | Yes      |
+| email      | String   | Yes      |
+| meetings   | Array    | Yes      |
+| appointments | Array  | Yes      |
+| picture    | String   | Yes      |
+
+### Meeting
+
+| Field Name | Data Type | Required |
+| ---------- | ---------| -------- |
+| _id        | ObjectId | Yes      |
+| start_time | Date     | Yes      |
+| end_time   | Date     | Yes      |
+| date       | Date     | Yes      |
+| heading    | String   | Yes      |
+| description| String   | Yes      |
+| location   | String   | Yes      |
+| created_by | String   | Yes      |
+| is_booked  | Boolean  | No       |
+| booked_by  | Mixed    | No       |
+| color      | String   | No       |
+
+
+
     
     WORKFLOW =>
     ...........
