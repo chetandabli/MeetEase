@@ -15,7 +15,7 @@ MeetEase is a web application that allows users to easily schedule and manage on
 
 **Client:** HTML, CSS, JavaScript 
 
-**Server:** Node.js, Express.js
+**Server:** Node.js, Express.js, Socket.io
 
 **Database:** MongoDB, Redis
 
