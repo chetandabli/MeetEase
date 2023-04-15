@@ -98,8 +98,20 @@ https://busy-motion-6100-production.up.railway.app/
 | booked_by  | Mixed    | No       |
 | color      | String   | No       |
 
+## API Endpoints
 
-
+| HTTP Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/user/logout` | Logs out the user and blacklists their token |
+| GET | `/user/refresh` | Refreshes the user access token |
+| GET | `/user/appointments` | Retrieves a list of appointments for a user |
+| GET | `/user/meetings` | Retrieves a list of meetings for a user |
+| GET | `/user/meetings/:when` | Retrieves a list of meetings based on when they occur |
+| GET | `/user/:userid` | Retrieves information about a specific user |
+| GET | `/meeting` | Get all meetings |
+| POST | `/meeting` | Create a new meeting |
+| POST | `/meeting/book/:meetingId` | Book a meeting |
+| DELETE | `/meeting/:id` | Delete a meeting |
     
     WORKFLOW =>
     ...........
