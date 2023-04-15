@@ -113,9 +113,6 @@ https://busy-motion-6100-production.up.railway.app/
 | POST | `/meeting/book/:meetingId` | Book a meeting |
 | DELETE | `/meeting/:id` | Delete a meeting |
     
-    WORKFLOW =>
-    ...........
-    
 ![meetease-data-relatioship](https://user-images.githubusercontent.com/107751849/229445013-7b309b18-2043-4178-86e6-c2b126499cea.png)
 
 
@@ -123,6 +120,3 @@ HomePage, Video Calling => Kuldeep Tiwari
 Checking meeting for user and deploying, logout => Chetan Ram
 Appointments => Keerti pawar
 login => ujjwal
-    
-    deploy link :-
-    railway (https://busy-motion-6100-production.up.railway.app/)
