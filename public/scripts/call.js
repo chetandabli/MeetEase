@@ -1,6 +1,6 @@
 'use strict';
 
-const baseURL = "/"
+const baseURL = "http://localhost:3000/"
 
 let localVideo = document.querySelector('#localVideo');
 let remoteVideo = document.querySelector('#remoteVideo');
@@ -314,5 +314,5 @@ function callProgress() {
 }
 
 document.getElementById("my_ac_btn").onclick = ()=>{
-    location.assign("https://busy-motion-6100-production.up.railway.app/dashboard.html")
+    location.assign("http://localhost:3000/dashboard.html")
 }

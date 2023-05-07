@@ -1,4 +1,4 @@
-fetch("https://busy-motion-6100-production.up.railway.app/auth/google")
+fetch("http://localhost:3000/auth/google")
 .then((res)=>{
     console.log(res.json())
 })

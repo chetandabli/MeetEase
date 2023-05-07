@@ -5,7 +5,7 @@ const get = (x)=>{
     return document.getElementById(`${x}`)
 }
 
-const baseUrl = "https://busy-motion-6100-production.up.railway.app/"
+const baseUrl = "http://localhost:3000/"
 
 get("name").innerText = x.name
 get("userimg").src = x.picture
@@ -121,6 +121,6 @@ async function bookMeeting(id){
 
 document.getElementById("videochat").onclick = ()=>{
     let n = x.name.split(" ")
-    location.assign(baseUrl+`videochat.html?name=unknown&user_id=notset&oppoid=${x._id}&opponame=${n[0]}`)
+    location.assign(baseUrl+`videochat.html?name=kuldeep&user_id=notset&oppoid=${x._id}&opponame=${n[0]}`)
 }
 

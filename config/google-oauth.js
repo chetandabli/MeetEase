@@ -8,7 +8,7 @@ const client_secret = process.env.client_secret;
 passport.use(new GoogleStrategy({
     clientID: client_id,
     clientSecret: client_secret,
-    callbackURL: "https://busy-motion-6100-production.up.railway.app/auth/google/callback"
+    callbackURL: "http://localhost:3000/auth/google/callback"
   },
   async function(accessToken, refreshToken, profile, cb) {
     const {name, email, picture} = profile._json;
