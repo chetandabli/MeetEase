@@ -1,6 +1,14 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: .4px;
+  line-height: 1.7;
+  transition: .4s ease-in;
+  font-size: 18px;
 }
 html {
   color: var(--color-black);
@@ -10,7 +18,7 @@ html {
   width: 100%;
 }
 #toppest {
-  max-width: 1200px;
+width: 100%;
   text-align: end;
   background-color:aliceblue;
   margin: auto;
@@ -22,21 +30,16 @@ html {
   color: var(--color-grey);
   padding-top: 5px;
 }
-
-nav {
-  display: flex;
-  max-width: 1200px;
-  margin: auto;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
 #logo{
   cursor: pointer;
 }
 
 nav img {
   width: 200px;
+}
+nav{
+  width: 60%;
+  margin: auto;
 }
 :root {
   --color-white: #ffff;
@@ -581,4 +584,78 @@ margin-top: 60px;
 }
 #bye p{
   font-size: 16px;
+}
+@media (max-width:1000px) {
+  nav{
+   width: 100%
+  }
+#topcover{
+  width: 100%;
+
+}
+.slides img{
+  width: 40%;
+}
+#nav2{
+display: none;
+}
+#mid_img{
+  display: none;
+}
+#mid_dollar{
+  width: 100%;
+}
+#mid_dollar p{
+  line-height: 24px;
+}
+.scheduled{
+  display: block;
+}
+#chris{
+  display: block;
+}
+#blank img{
+  width: 400px;
+  margin-left: 0px;
+}
+#au{
+  display: block;
+}
+#vertical-line{
+  display: none;
+}
+#auto{
+  width: 80%;
+}
+#integration{
+  display: block;
+}
+#int1 h1,#int1 p,#int1 button{
+  margin-left: 0px;
+}
+#int1 button{
+  height: 75px;
+}
+#int2 img{
+width: 400px;
+margin-left: 0px;
+}
+#it_team{
+  display: block;
+  padding: 20px;
+}
+#btn_to{
+display: block;
+padding-right: 100px;
+}
+footer {
+padding-inline: 10px;
+}
+footer h1{
+  margin-top: 150px;
+  text-align: center;
+}
+#recov{
+margin: auto;
+}
 }

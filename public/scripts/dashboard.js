@@ -36,7 +36,7 @@ window.addEventListener("load", () => {
 
 const livebtn = document.getElementById("livemeeting").onclick = ()=>{
   let x = myname.split(" ")
-  location.assign(baseUrl+`videochat.html?name=${x[0]}&user_id=${myUserId}`)
+  location.assign(baseUrl+"/videochat.html")
 }
   
 
