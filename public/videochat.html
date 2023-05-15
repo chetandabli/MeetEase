@@ -1,188 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/assets/logo.png" type="image/png" />
-    <title>Video Chat - MeetEase</title>
-    <link rel="stylesheet" href="./css/call.css">
-    <script src="https://kit.fontawesome.com/bd303dea31.js" crossorigin="anonymous"></script>
-    <script src='/socket.io/socket.io.js'></script>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-        }
-    </style>
-    <script>
-        let myName;
-    </script>
-</head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookMyShoot | VideoChat</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.png" />
+    <link rel="stylesheet" href="./styles/meeting.css" />
+    <script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+    <script src="https://kit.fontawesome.com/24c494a6b6.js" crossorigin="anonymous"></script>
 
-<body>
-    <div id="topcover">
-        <div id="toppest">
-            <h3><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></h3>
-        </div>
-    </div>
-    <nav>
-        <div>
-            <img src="./images/MeetEase.png" alt="error-404">
-        </div>
-        <div id="top_nav">
-            <div><a href=""></a>Products</div>
-            <div><a href=""></a>Solutions <i class="fa-solid fa-angle-down"></i></div>
-            <div><a href=""></a>Teams & Companies</div>
-            <div><a href=""></a>Pricing</div>
-            <div><a href=""></a>Resources <i class="fa-solid fa-angle-down"></i></div>
-        </div>
-        <div id="acc_btn">
-            <button id="my_ac_btn">End</button>
-        </div>
-    </nav>
-    <div id="callfor">
-        <img src="./images/MeetEase.png" alt="error-404">
-        <h1>CoNNect</h1>
-    </div>
-    <div>
-        <div>
-            <!-- to input username and login -->
-            <!-- <div id="userName">
-                <div style="display: flex; flex-direction: column; align-items: center; width: 300px;">
-                    <input placeholder="Enter your name?" style="text-align:center; height: 50px; font-size: xx-large;"
-                        type="text" name="" id="userNameInput">
-                    <div style="height: 5px;"></div>
-                    <button onclick="login()" class="actionButton">Login</button>
-                </div>
-            </div> -->
-            <!-- to display current login user information  -->
-            <div id="userInfo">
-                <div style="display: flex; flex-direction: column; align-items: center; width: auto;">
-                    <h1 style="margin-left: 50px;">Hello <span id="nameHere"></span> you are ready for video meeting</h1>
-                    <h1 style="margin-left: 50px;">or</h1>
-                </div>
-            </div>
-            <!-- to make a call with name -->
-            <div id="call">
-                <div class="dialWrapper">
-                    <input placeholder="Whom do you want to call?"
-                        style="text-align:center; height: 50px; font-size: xx-large;" type="text" name="callName"
-                        id="callName">
-                    <div class="dialNumpadHWrapper">
-                        <div class="dialNumber">
-                        </div>
-                        <div class="dialNumber">
-                            <button class="dialActionButton" onclick="call()">Call</button>
-                        </div>
-                        <div class="dialNumber">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- to show incommming call and accept -->
-            <div id="answer">
-                <div class="incomingWrapper">
-                    <div class="itemWrapper">
-                        <h2 id="incoming"><i class="fa-solid fa-video fa-fade"></i> Incoming Video Call</h2>
-                    </div>
-                    <div class="itemWrapper">
-                        <img id="profileImageA" style="padding: 30px; width: 140px; height: 140px;"
-                            src="profile.png" alt="">
-                    </div>
-                    <div class="itemWrapper">
-                        <h2 style="line-height: 0px;"><span id="callerName"></span></h2>
-                    </div>
-                    <div class="itemWrapper" style="display: flex; flex-direction: row; margin-bottom: 20px;">
-                        <button class="actionButton" onclick="answer()"><i
-                                class="fa-solid fa-phone fa-bounce"></i></button>
-                        <button class="actionButton" onclick="reject()"><i
-                                class="fa-sharp fa-solid fa-phone-slash fa-shake"></i></button>
-                    </div>
-                </div>
-            </div>
-            <!-- to show outgoing call -->
-            <div id="calling">
-                <div class="incomingWrapper">
-                    <div class="itemWrapper">
-                        <h2 id="callings">Calling</h2>
-                    </div>
-                    <!-- <div id="call-duration"></div> -->
-                    <div class="itemWrapper">
-                        <img id="profileImageCA" style="padding: 30px; width: 140px; height: 140px;"
-                            src="profile.png" alt="">
-                    </div>
-                    <span id="timer">00:00</span>
-                    <div class="itemWrapper">
-                        <h3 style="line-height: 0px;"><span id="otherUserNameCA"></span></h3>
-                    </div>
-                </div>
-            </div>
-            <!-- to show call in progress call -->
-            <div id="inCall">
-                <div class="incomingWrapper">
-                    <div class="itemWrapper">
-                        <h3 id="oncall">On Call With <span id="otherUserNameC"> </span></h3>
-                        <span id="timer">00:00</span>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <!-- to show local and remote video -->
-            <div id="videos">
-                <div style="position:absolute; top:0; right:0; padding-right: 20px; padding-top: 20px">
-                    <video width="100px" id="localVideo" autoplay muted playsinline></video>
-                </div>
-                <div id="remoteVideoDiv">
-                    <video style="width: 700px;" id="remoteVideo" autoplay playsinline></video>
-                </div>
-            </div>
-            <div style="flex-grow: 1;">
-            </div>
-        </div>
-    </div>
-    <div style="flex-grow: 1;">
-    </div>
-    <div id="bye">
-        <div id="eng">
-            <h3><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></h3>
-        </div>
-        <div>
-            <p>Copyright MeetEase 2023 / Privacy / Terms and Conditions / Status /Security</p>
-        </div>
-        <div id="social">
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-linkedin"></i>
-            <i class="fa-brands fa-youtube"></i>
-        </div>
-    </div>
+    <!-- Loader -->
     <script src="./scripts/call.js"></script>
-    <script>
-        document.getElementById("answer").style.display = "none";
-        document.getElementById("inCall").style.display = "none";
-        document.getElementById("calling").style.display = "none";
-        document.getElementById("videos").style.display = "none";
-    </script>
-    <script>
-        let params = new URL(document.location).searchParams;
-        myName = params.get("name");
-        let opponame = params.get("opponame")
-        let oppoid = params.get("oppoid")
-        let myUserId = params.get("user_id");
-        document.getElementById("nameHere").innerHTML = myName || "Unknown";
-        
-        if(myName && myUserId){
-            connectSocket();
-        }
-
-        if(opponame){
-            document.getElementById("callName").value = opponame;
-        }
-    </script>
+    <link rel="stylesheet" href="./css/call.css">
+    <!----------------->
+</head>
+<body>
+    <div id="logoDiv">
+        <img id="logo" src="./images/MeetEase.png" alt="" />
+    </div>
+    <h1 id="roomID"></h1>
+    <div id="videoDiv"></div>
+    <div id="controls">
+        <p id="hangup">
+            <a href="./index.html"><img class="icon"
+                    src="https://icons.veryicon.com/png/o/miscellaneous/cloud-call-center/hang-up.png" alt="" /></a>
+        <p id="hide-video" class="icon-color"><img width="50px" class="icon" src="./images/cam.png" alt=""></p>
+        <p id="hide-audio" class="icon-color"><img class="icon" src="./images/mike.png" alt=""></p>
+        </p>
+    </div>
 </body>
-
 </html>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+    integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+    crossorigin="anonymous"></script>
+<script src="./scripts/call.js"></script>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,42 +17,53 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://kit.fontawesome.com/bd303dea31.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <!---------------------------------------------------------- Header-------------------------------------------------------------- -->
     <div id="topcover">
         <div id="toppest">
             <h3><i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-chevron-down"></i></h3>
         </div>
     </div>
-    <nav>
-        <div>
-            <img src="./images/MeetEase.png" alt="error-404" id="logo">
-        </div>
-        <div id="top_nav">
-            <div><a href=""></a>Products</div>
-            <div><a href=""></a>Solutions <i class="fa-solid fa-angle-down"></i></div>
-            <div><a href=""></a>Teams & Companies</div>
-            <div><a href=""></a>Pricing</div>
-            <div><a href=""></a>Resources <i class="fa-solid fa-angle-down"></i></div>
-        </div>
-        <div id="acc_btn">
-            <button id="my_ac_btn">Log in</button>
-            <button id="logout_btn">logout</button>
-        </div>
-    </nav>
-    <!---------------------------------------------------------- Header Ends---------------------------------------------------------------- -->
-    <!-------------------------------------------------------------- About---------------------------------------------------------------------------------------- -->
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html"><img src="images/MeetEase.png" alt=""> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Solutions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Team & Companies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+      </ul>
+      <span id="acc_btn">
+       <button id="my_ac_btn">Log in</button>
+       <button id="logout_btn">logout</button>
+      </span>
+    </div>
+  </div>
+</nav>
+    <!---------------------------------------------------------- Header-------------------------------------------------------------- -->
     <section id="about">
         <div id="easy">
             <h4>Easy</h4>
             <h4>scheduling</h4>
             <h4>ahead</h4>
-            <p>Calendly is your scheduling automation platform for eliminating the back-and-forth emails for finding the
+            <p>MeetEase is your scheduling automation platform for eliminating the back-and-forth emails for finding the
                 perfect time — and so much more.</p>
             <div id="oauth">
                 <button><i class="fa-brands fa-google"></i> Sign up free with Google</button>
-                <button><i class="fa-brands fa-microsoft"></i> Sign up free with Microsoft</button>
             </div>
         </div>
         <div id="easy_img">
@@ -274,7 +284,7 @@
     </div>
     <footer>
         <h1>Easy <span id="clrfor"> ahead</span></h1>
-        <p>MeetEase is the Modern Scheduling PLatform for high-performing teams</p>
+        <p id="recov">MeetEase is the Modern Scheduling PLatform for high-performing teams</p>
         <hr>
         <div id="lastcards">
             <div class="lastcard">

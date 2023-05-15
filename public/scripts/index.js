@@ -7,19 +7,16 @@ const baseUrl = "https://busy-motion-6100-production.up.railway.app/"
 document.getElementById("logo").onclick = ()=>{
     location.assign("../index.html")
 }
-
 if(token){
     localStorage.setItem("token", JSON.stringify(token));
     localStorage.setItem("refresh_token",refresh_token );
 }
-
 const gettoken = JSON.parse(localStorage.getItem("token"))
 
 if(gettoken){
     loginbtn.innerText = "My Account"
     logoutbtn.style.display = "inline"
 }
-
 loginbtn.onclick = ()=>{
     if(loginbtn.innerText == "My Account"){
         location.assign("../dashboard.html")
