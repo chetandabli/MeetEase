@@ -33,10 +33,9 @@ window.addEventListener("load", () => {
         console.log(error)
     }
 }
-
+const room = Math.floor(Math.random() * 900) + 100;
 const livebtn = document.getElementById("livemeeting").onclick = ()=>{
-  let x = myname.split(" ")
-  location.assign(baseUrl+"/videochat.html")
+  location.assign(`${baseUrl}videochat.html?id=${room}`)
 }
   
 
