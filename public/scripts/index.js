@@ -3,6 +3,7 @@ let token = params.get("token");
 let refresh_token = params.get("rtoken");
 const loginbtn = document.getElementById("my_ac_btn")
 const logoutbtn = document.getElementById("logout_btn");
+const signup = document.getElementById("signupf")
 const baseUrl = "https://busy-motion-6100-production.up.railway.app/"
 document.getElementById("logo").onclick = ()=>{
     location.assign("../index.html")
@@ -23,6 +24,9 @@ loginbtn.onclick = ()=>{
     }else{
         location.assign("../signup.html")
     }
+}
+signup.onclick=()=>{
+    location.assign("../signup.html")
 }
 logoutbtn.onclick = async()=>{
     try {
