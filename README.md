@@ -24,7 +24,7 @@ MeetEase is a web application that allows users to easily schedule and manage on
 Clone the project
 
 ```bash
-  git clone https://github.com/chetandabli/busy-motion-6100
+  git clone https://github.com/chetandabli/MeetEase
 ```
 
 Go to the project directory
@@ -60,7 +60,7 @@ To run this project, you will need to add the following environment variables to
 `redisClientHost` redis client host
 
 ## Demo
-https://busy-motion-6100-production.up.railway.app/
+https://easemeet.onrender.com
 
 ## Authors
 
