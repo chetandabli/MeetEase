@@ -1,4 +1,4 @@
-fetch("https://busy-motion-6100-production.up.railway.app/auth/google")
+fetch("https://easemeet.onrender.com/auth/google")
 .then((res)=>{
     console.log(res.json())
 })

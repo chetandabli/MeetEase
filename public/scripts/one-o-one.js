@@ -38,7 +38,7 @@ let postData = () => {
         location: event_location,
     }
     console.log(event_data)
-    fetch("https://busy-motion-6100-production.up.railway.app/meeting",{
+    fetch("https://easemeet.onrender.com/meeting",{
         method:"POST",
         headers:{
             "Content-type":"application/json",
