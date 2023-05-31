@@ -1,4 +1,4 @@
-const baseUrl = "https://busy-motion-6100-production.up.railway.app/";
+const baseUrl = "https://easemeet.onrender.com/";
 
 let myname, myUserId;
 
@@ -42,7 +42,7 @@ const livebtn = document.getElementById("livemeeting").onclick = ()=>{
   async function appenddata() {
 
     try {
-      let responsedata = await fetch("https://busy-motion-6100-production.up.railway.app/user/meetings",{
+      let responsedata = await fetch("https://easemeet.onrender.com/user/meetings",{
        
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ function append(x, data){
        booking.setAttribute("id","book")
        booking.style.color  = "blue"
        booking.addEventListener("click", function () {
-        window.open(`https://busy-motion-6100-production.up.railway.app/user/${x[0]._id}`)
+        window.open(`https://easemeet.onrender.com/user/${x[0]._id}`)
       });
        let  hra = document.createElement("hr")
          hra.style.color = "#ededed"
@@ -100,7 +100,7 @@ function append(x, data){
        link.innerText = "Copy link";
        link.addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText(`https://busy-motion-6100-production.up.railway.app/user/${x[0]._id}`);
+          await navigator.clipboard.writeText(`https://easemeet.onrender.com/user/${x[0]._id}`);
           link.innerText = "Copied"
           setTimeout(() => {
             link.innerText = "Copy link"
@@ -133,9 +133,9 @@ let a = data[0].email
 
 document.getElementById("namecircle").innerText = ` ${data[0].name[0]}`
 // document.querySelector("#span").innerText = `localhost:3000/user/${data[0]._id}`
-document.querySelector("#span").innerText = `https://busy-motion-6100-production.up.railway.app/user/${data[0]._id}`
+document.querySelector("#span").innerText = `https://easemeet.onrender.com/user/${data[0]._id}`
 document.querySelector("#span").onclick = ()=>{
-  window.open(`https://busy-motion-6100-production.up.railway.app/user/${data[0]._id}`)
+  window.open(`https://easemeet.onrender.com/user/${data[0]._id}`)
 }
 document.querySelector("#span").style.color = "blue"
 
@@ -175,7 +175,7 @@ function showtime(start,end){
 
 async function removed(id){
   try {
-    let responsedata = await fetch(`https://busy-motion-6100-production.up.railway.app/meeting/${id}`,{
+    let responsedata = await fetch(`https://easemeet.onrender.com/meeting/${id}`,{
       method:"DELETE",
       headers: {
         "Authorization":`Bearer ${JSON.parse(localStorage.getItem("token"))}`
@@ -237,7 +237,7 @@ async function appendremain(when) {
 
 
   try {
-    let responsedata = await fetch(`https://busy-motion-6100-production.up.railway.app/user/meetings/${when}`,{
+    let responsedata = await fetch(`https://easemeet.onrender.com/user/meetings/${when}`,{
      
       headers: {
         "Content-Type": "application/json",

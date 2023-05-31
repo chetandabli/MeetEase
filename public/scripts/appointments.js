@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
 
   async function appenddata() {
     try {
-      let responsedata = await fetch("https://busy-motion-6100-production.up.railway.app/user/appointments",{
+      let responsedata = await fetch("https://easemeet.onrender.com/user/appointments",{
        
         headers: {
           "Content-Type": "application/json",
