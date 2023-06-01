@@ -30,7 +30,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd busy-motion-6100
+  cd MeetEase
 ```
 
 Install dependencies
